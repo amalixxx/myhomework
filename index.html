@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой любимый персонаж - Кэди Хирон</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .container {
+            background: #2b2b2b;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ff6b81;
+            background: -webkit-linear-gradient(left, #ff6b81, #f76a8c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-content {
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background: #ff6b81;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(255, 107, 129, 0.4);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #ff4769;
+            transform: translateY(-3px);
+        }
+
+        .background-circle {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #ff6b81, #f76a8c);
+            border-radius: 50%;
+            filter: blur(100px);
+            top: -200px;
+            left: -200px;
+        }
+
+        .background-circle.bottom {
+            top: auto;
+            bottom: -200px;
+            left: auto;
+            right: -200px;
+        }
+
+        /* Секция с интерактивными кнопками */
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .interactive-btn {
+            width: 100px;
+            height: 100px;
+            border: none;
+            border-radius: 15px;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-btn:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Кнопки с различными эффектами */
+        .btn-1 {
+            background: #ff6b81;
+        }
+
+        .btn-1:hover {
+            background: #ff4769;
+        }
+
+        .btn-2 {
+            background: #1e90ff;
+            position: relative;
+        }
+
+        .btn-2::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: width 0.4s ease, height 0.4s ease, top 0.4s ease, left 0.4s ease;
+        }
+
+        .btn-2:hover::before {
+            width: 200px;
+            height: 200px;
+            top: -50%;
+            left: -50%;
+        }
+
+        .btn-3 {
+            background: linear-gradient(45deg, #ff007f, #ff7f00);
+        }
+
+        .btn-3:hover {
+            background-position: right center;
+            transition: background-position 0.5s ease;
+        }
+
+        .btn-4 {
+            background: #32cd32;
+            box-shadow: 0 0 20px rgba(50, 205, 50, 0.5);
+        }
+
+        .btn-4:hover {
+            box-shadow: 0 0 40px rgba(50, 205, 50, 0.8);
+        }
+
+        .btn-5 {
+            background: #8a2be2;
+        }
+
+        .btn-5:hover {
+            background: linear-gradient(135deg, #8a2be2, #4b0082);
+        }
+
+        .btn-6 {
+            background: #ffa500;
+            border: 2px solid transparent;
+        }
+
+        .btn-6:hover {
+            background: transparent;
+            border: 2px solid #ffa500;
+            color: #ffa500;
+        }
+
+        .btn-7 {
+            background: #20b2aa;
+        }
+
+        .btn-7:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .btn-8 {
+            background: #ff1493;
+            background-size: 300% 300%;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .btn-9 {
+            background: #4682b4;
+        }
+
+        .btn-9:hover {
+            filter: brightness(1.5);
+        }
+
+        .btn-10 {
+            background: #ff4500;
+        }
+
+        .btn-10:hover {
+            background: #ff6347;
+            transform: rotate(15deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background-circle"></div>
+        <div class="background-circle bottom"></div>
+
+        <h1>Кэди Хирон</h1>
+
+        <div class="text-content">
+            <img src="https://images.app.goo.gl/zGWnNjg3PXptkKrLA" alt="Кэди Хирон">
+            <p>Кэди Хирон — главная героиня культового фильма <em>«Дрянные девчонки»</em>, который вышел в 2004 году. Её сыграла Линдси Лохан.</p>
+            
+            <img src="https://images.app.goo.gl/Ho2DLM3yknFmXHiD7" alt="Постер фильма Дрянные девчонки">
+            <p>Фильм рассказывает о том, как Кэди, выросшая в Африке, впервые сталкивается с жестокими законами американской школы и мира девичьих интриг.</p>
+
+            <img src="https://images.app.goo.gl/8hthzo7DLxvmmu9z9" alt="Кэди в школе">
+            <p>Она пытается вписаться в общество, но попадает в ловушку популярности и фальшивых друзей, прежде чем находит свою настоящую личность.</p>
+        </div>
+
+        <button class="btn">Подробнее</button>
+    </div>
+
+    <!-- Кнопки с интересными эффектами -->
+    <div class="buttons-container">
+        <button class="interactive-btn btn-1">Кнопка 1</button>
+        <button class="interactive-btn btn-2">Кнопка 2</button>
+        <button class="interactive-btn btn-3">Кнопка 3</button>
+        <button class="interactive-btn btn-4">Кнопка 4</button>
+        <button class="interactive-btn btn-5">Кнопка 5</button>
+        <button class="interactive-btn btn-6">Кнопка 6</button>
+        <button class="interactive-btn btn-7">Кнопка 7</button>
+        <button class="interactive-btn btn-8">Кнопка 8</button>
+        <button class="interactive-btn btn-9">Кнопка 9</button>
+        <button class="interactive-btn btn-10">Кнопка 10</button>
+    </div>
+
+</body>
+</html>
